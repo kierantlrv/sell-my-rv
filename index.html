@@ -272,7 +272,7 @@
           <textarea id="notes" placeholder="Condition, kilometres, asking price in mind…"></textarea>
         </div>
 
-        <button class="submit-btn" onclick="handleSubmit()">Send my details →</button>
+        <button class="submit-btn" onclick="handleSubmit(event)">Send my details →</button>
         <p class="disclaimer">Your info goes only to Kieran. No spam, ever.</p>
       </div>
 
@@ -326,19 +326,41 @@
 </footer>
 
 <script>
-function handleSubmit() {
+async function handleSubmit(e) {
   const name = document.getElementById('name').value.trim();
   const phone = document.getElementById('phone').value.trim();
   const rvType = document.getElementById('rv-type').value;
   const rvDetails = document.getElementById('rv-details').value.trim();
+  const notes = document.getElementById('notes').value.trim();
   if (!name || !phone || !rvType || !rvDetails) {
     alert('Please fill in your name, phone, RV type, and year/make/model.');
     return;
   }
-  document.getElementById('form-body').style.display = 'none';
-  document.getElementById('success-state').style.display = 'block';
+  const btn = document.querySelector('.submit-btn');
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+  try {
+    const res = await fetch('https://formspree.io/f/mqendewn', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ name, phone, rv_type: rvType, rv_details: rvDetails, notes })
+    });
+    if (res.ok) {
+      document.getElementById('form-body').style.display = 'none';
+      document.getElementById('success-state').style.display = 'block';
+    } else {
+      alert('Something went wrong. Please try again or call (250) 769-4525.');
+      btn.textContent = 'Send my details →';
+      btn.disabled = false;
+    }
+  } catch(err) {
+    alert('Something went wrong. Please try again or call (250) 769-4525.');
+    btn.textContent = 'Send my details →';
+    btn.disabled = false;
+  }
 }
 </script>
 
 </body>
 </html>
+
