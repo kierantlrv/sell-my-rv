@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sell Your RV | Kieran @ Traveland RV West Kelowna</title>
+<meta name="description" content="Get a fast, honest appraisal for your RV. Kieran at Traveland RV West Kelowna buys travel trailers, fifth wheels, motorhomes and more. No pressure, no runaround." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: #0f1a0f;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(160deg, #1a2e1a 0%, #0f1a0f 65%);
+    padding: 3.5rem 1.5rem 3rem;
+    text-align: center;
+    border-bottom: 1px solid #1e331e;
+  }
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #7ab87a;
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 12vw, 88px);
+    line-height: 0.95;
+    color: #f5f0e8;
+    margin-bottom: 1rem;
+  }
+  .hero h1 span { color: #7ab87a; }
+  .hero p {
+    font-size: 17px;
+    color: #9aaa9a;
+    max-width: 440px;
+    margin: 0 auto 2rem;
+    line-height: 1.65;
+  }
+
+  /* TRUST BAR */
+  .trust-bar {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #7ab87a;
+    letter-spacing: 0.3px;
+  }
+  .trust-item i { font-size: 17px; }
+
+  /* FORM CARD */
+  .form-card {
+    background: #162616;
+    border: 0.5px solid #2a422a;
+    border-radius: 16px;
+    padding: 2rem 1.75rem;
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  .form-card h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    color: #f5f0e8;
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.5px;
+  }
+  .form-card > p {
+    font-size: 14px;
+    color: #6a8a6a;
+    margin-bottom: 1.75rem;
+  }
+  .field { margin-bottom: 1.1rem; }
+  .field label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #6a8a6a;
+    margin-bottom: 7px;
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    background: #0c160c;
+    border: 0.5px solid #2a422a;
+    border-radius: 8px;
+    padding: 13px 15px;
+    font-size: 15px;
+    color: #f5f0e8;
+    font-family: 'Source Sans 3', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  .field input::placeholder,
+  .field textarea::placeholder { color: #2e4a2e; }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus { border-color: #7ab87a; }
+  .field select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237ab87a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+  }
+  .field select option { background: #162616; color: #f5f0e8; }
+  .field textarea { resize: vertical; min-height: 85px; line-height: 1.5; }
+
+  .submit-btn {
+    width: 100%;
+    background: #7ab87a;
+    color: #0c160c;
+    border: none;
+    border-radius: 8px;
+    padding: 16px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 0.75rem;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .submit-btn:hover { background: #8fcf8f; }
+  .submit-btn:active { transform: scale(0.98); }
+
+  .disclaimer {
+    font-size: 11px;
+    color: #3a563a;
+    text-align: center;
+    margin-top: 1rem;
+    line-height: 1.6;
+  }
+
+  /* SUCCESS STATE */
+  .success-state {
+    display: none;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  .success-state i { font-size: 48px; color: #7ab87a; margin-bottom: 1rem; display: block; }
+  .success-state h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: #f5f0e8;
+    margin-bottom: 0.5rem;
+  }
+  .success-state p { font-size: 14px; color: #6a8a6a; line-height: 1.6; }
+
+  /* WHY SECTION */
+  .why-section {
+    padding: 3rem 1.5rem;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .why-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    color: #f5f0e8;
+    margin-bottom: 1.75rem;
+    letter-spacing: 0.5px;
+  }
+  .point {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 1.5rem;
+    align-items: flex-start;
+  }
+  .point-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #162616;
+    border: 0.5px solid #2a422a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .point-icon i { font-size: 20px; color: #7ab87a; }
+  .point-text h3 { font-size: 15px; font-weight: 600; color: #f5f0e8; margin-bottom: 3px; }
+  .point-text p { font-size: 14px; color: #6a8a6a; line-height: 1.6; }
+
+  /* FOOTER */
+  footer {
+    border-top: 0.5px solid #162616;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    font-size: 12px;
+    color: #3a563a;
+    line-height: 1.8;
+  }
+  footer a { color: #6a8a6a; text-decoration: none; }
+  footer a:hover { color: #7ab87a; }
+
+  @media (max-width: 480px) {
+    .hero { padding: 2.5rem 1rem 2rem; }
+    .form-card { padding: 1.5rem 1.25rem; border-radius: 12px; }
+    .why-section { padding: 2.5rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <section class="hero">
+    <p class="eyebrow">Traveland RV — West Kelowna, BC</p>
+    <h1>Thinking of<br>selling your <span>RV?</span></h1>
+    <p>Get a fast, honest appraisal from Kieran — no pressure, no runaround. We buy travel trailers, fifth wheels, motorhomes &amp; more across BC.</p>
+
+    <div class="trust-bar">
+      <div class="trust-item"><i class="ti ti-clock" aria-hidden="true"></i> Same-day response</div>
+      <div class="trust-item"><i class="ti ti-shield-check" aria-hidden="true"></i> No obligation</div>
+      <div class="trust-item"><i class="ti ti-map-pin" aria-hidden="true"></i> BC-based buyer</div>
+    </div>
+
+    <div class="form-card">
+      <div id="form-body">
+        <h2>Get your free appraisal</h2>
+        <p>Takes 60 seconds. Kieran will follow up personally.</p>
+
+        <div class="field">
+          <label for="name">Your name</label>
+          <input type="text" id="name" placeholder="Jane Smith" autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" placeholder="(250) 555-0100" autocomplete="tel" />
+        </div>
+        <div class="field">
+          <label for="rv-type">RV type</label>
+          <select id="rv-type">
+            <option value="" disabled selected>Select type…</option>
+            <option>Travel trailer</option>
+            <option>Fifth wheel</option>
+            <option>Motorhome (Class A)</option>
+            <option>Motorhome (Class B/C)</option>
+            <option>Toy hauler</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="rv-details">Year &amp; make/model</label>
+          <input type="text" id="rv-details" placeholder="e.g. 2019 Forest River Rockwood" />
+        </div>
+        <div class="field">
+          <label for="notes">Anything else? <span style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+          <textarea id="notes" placeholder="Condition, kilometres, asking price in mind…"></textarea>
+        </div>
+
+        <button class="submit-btn" onclick="handleSubmit()">Send my details →</button>
+        <p class="disclaimer">Your info goes only to Kieran. No spam, ever.</p>
+      </div>
+
+      <div class="success-state" id="success-state">
+        <i class="ti ti-circle-check" aria-hidden="true"></i>
+        <h3>You're all set!</h3>
+        <p>Thanks — Kieran will be in touch shortly to chat about your RV.<br>Keep an eye on your phone.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-section" aria-label="Why sell through Kieran">
+    <div class="why-title">Why sell through Kieran?</div>
+
+    <div class="point">
+      <div class="point-icon"><i class="ti ti-user-check" aria-hidden="true"></i></div>
+      <div class="point-text">
+        <h3>One person, start to finish</h3>
+        <p>You deal directly with Kieran — not a call centre or rotating staff. One conversation, no handoffs.</p>
+      </div>
+    </div>
+    <div class="point">
+      <div class="point-icon"><i class="ti ti-cash" aria-hidden="true"></i></div>
+      <div class="point-text">
+        <h3>Fair market appraisals</h3>
+        <p>Backed by Canadian Black Book and real lot knowledge. No lowball games — just an honest number.</p>
+      </div>
+    </div>
+    <div class="point">
+      <div class="point-icon"><i class="ti ti-calendar-check" aria-hidden="true"></i></div>
+      <div class="point-text">
+        <h3>We move fast</h3>
+        <p>Most sellers hear back the same day. No waiting weeks for a decision while your RV sits on your driveway.</p>
+      </div>
+    </div>
+    <div class="point">
+      <div class="point-icon"><i class="ti ti-home" aria-hidden="true"></i></div>
+      <div class="point-text">
+        <h3>Licensed BC dealership</h3>
+        <p>Traveland RV is a VSA-licensed BC dealer. You're protected and dealing with a legitimate business every step of the way.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong style="color:#6a8a6a">Kieran @ Traveland RV</strong><br>
+  1460 Byland Rd, West Kelowna, BC &nbsp;·&nbsp; VSA Licence #40164<br>
+  <a href="tel:2507694525">(250) 769-4525</a> &nbsp;·&nbsp;
+  <a href="https://www.facebook.com" target="_blank" rel="noopener">Message on Facebook</a>
+</footer>
+
+<script>
+function handleSubmit() {
+  const name = document.getElementById('name').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const rvType = document.getElementById('rv-type').value;
+  const rvDetails = document.getElementById('rv-details').value.trim();
+  if (!name || !phone || !rvType || !rvDetails) {
+    alert('Please fill in your name, phone, RV type, and year/make/model.');
+    return;
+  }
+  document.getElementById('form-body').style.display = 'none';
+  document.getElementById('success-state').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
